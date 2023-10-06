@@ -38,39 +38,34 @@ public class AutoGasolina extends Auto {
     public void acelerar(int cantidad) {
 
         int velocidad=0;
-        int nuevaVelocidad = velocidad + cantidad;
+        int nuevaVelocidad = super.getVelocidadInicial() + cantidad;
         float consumoTotal = consumoGasolina * cantidad;
-
+        System.out.println("************AUTO DE GASOLINA************");
+        System.out.println("EL incremento en velocidad es de: " + cantidad + "Km/h");
+        int distanciaRecorrida=0;
+        //int distanciaTotal=0;
+        final int TIEMPO=3;
         if (cantidad < 0) {
 
             System.out.println("ERROR. Ingrese correctamente el valor de cantidad, esta debe ser mayor a 0");
 
         }else if (cantidadCombustible > consumoTotal) {
+            distanciaRecorrida = cantidad*TIEMPO;
+            //distanciaTotal =distanciaRecorrida+cantidad/TIEMPO;
             velocidad = nuevaVelocidad;
             cantidadCombustible -= consumoTotal;
-            System.out.println("La aceleración del auto es de: " + nuevaVelocidad + " Km/h");
+            System.out.println("La aceleración del auto de gasolina es de: " + nuevaVelocidad + " Km/h");
+            System.out.println("Distancia recorrida del auto de gasolina es de: " + distanciaRecorrida + " Km");
+            //System.out.println("Distancia total recorrida del auto de gasolina es de: " + distanciaTotal + " Km");
             System.out.println("Combustible actual: " + cantidadCombustible + " G");
-
-        }else
+            System.out.println("");
+            super.setVelocidadInicial(nuevaVelocidad);
+        }else {
             System.out.println("ERROR. La velocidad del auto no puede aumentar debido a que no tiene suficiente combustible");
-    }
-    /*
-    public void acelerar2(int cantidad)
-    {
-        int velocidadMaxima=0;
-        int combustibleNecesario = cantidad / consumoGasolina;
-        if (combustibleNecesario > cantidadCombustible) {
-            System.out.println("Error: No hay suficiente combustible para acelerar.");
-        } else {
-            cantidadCombustible -= combustibleNecesario;
-            int velocidadActual = cantidad;
-
-            if (velocidadActual > velocidadMaxima) {
-                velocidadActual = velocidadMaxima;
-            }
+            System.out.println("");
         }
-    }*/
-
+        //System.out.println("La distancia total recorrida del auto de gasolina fue de: " + distanciaTotal + " Km");
+    }
 
     public int getCantidadCombustible() {
         return cantidadCombustible;

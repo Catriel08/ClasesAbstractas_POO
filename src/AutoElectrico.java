@@ -36,40 +36,31 @@ public class AutoElectrico extends Auto {
     @Override
     public void acelerar(int cantidad) {
         int velocidad=0;
-        int nuevaVelocidad = velocidad + cantidad;
+        int nuevaVelocidad = super.getVelocidadInicial() + cantidad;
         float consumoTotal = consumoBateria * cantidad;
-
+        System.out.println("************AUTO ELECTRICO************");
+        System.out.println("EL incremento en velocidad es de: " + cantidad + "Km/h");
+        int distanciaRecorrida=0;
+        final int TIEMPO=3;
         if (cantidad < 0){
             System.out.println("ERROR. Ingrese correctamente el valor de cantidad, esta debe ser mayor a 0");
         }
         else if (capacidadBateria > consumoTotal)
         {
+            distanciaRecorrida = cantidad*TIEMPO;
             velocidad=nuevaVelocidad;
             capacidadBateria -= consumoTotal;
-            System.out.println("La velocidad del auto es de: " + nuevaVelocidad + " Km/h");
+            System.out.println("La velocidad del auto electrico es de: " + nuevaVelocidad + " Km/h");
+            System.out.println("Distancia recorrida del auto electrico es de: " + distanciaRecorrida + " Km");
             System.out.println("Combustible actual: " + capacidadBateria + " kWh");
 
+
+            super.setVelocidadInicial(nuevaVelocidad);
         }
         else
             System.out.println("ERROR. La velocidad del auto no puede aumentar debido a que no tiene suficiente bateria");
+            System.out.println("");
     }
-    /*
-    @Override
-    public void acelerar2(int cantidad) {
-
-        int velocidadMaxima=0;
-        int combustibleNecesario = cantidad / consumoBateria;
-        if (combustibleNecesario > capacidadBateria) {
-            System.out.println("Error: No hay suficiente combustible para acelerar.");
-        } else {
-            capacidadBateria -= combustibleNecesario;
-            int velocidadActual = cantidad;
-
-            if (velocidadActual > velocidadMaxima) {
-                velocidadActual = velocidadMaxima;
-            }
-        }
-    }*/
 
     public int getCapacidadBateria() {
         return capacidadBateria;
@@ -79,19 +70,18 @@ public class AutoElectrico extends Auto {
         this.capacidadBateria = capacidadBateria;
     }
 
-    @Override
-    public String toString() {
-        return super.toString() +"AutoElectrico{" +
-                "capacidadBateria=" + capacidadBateria +
-                ", cosumoBateria=" + consumoBateria +
-                '}';
-    }
-
     public float getConsumoBateria() {
         return consumoBateria;
     }
 
     public void setConsumoBateria(float consumoBateria) {
         this.consumoBateria = consumoBateria;
+    }
+    @Override
+    public String toString() {
+        return super.toString() +"AutoElectrico{" +
+                "capacidadBateria=" + capacidadBateria +
+                ", cosumoBateria=" + consumoBateria +
+                '}';
     }
 }
