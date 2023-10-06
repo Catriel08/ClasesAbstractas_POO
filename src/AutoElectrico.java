@@ -53,8 +53,6 @@ public class AutoElectrico extends Auto {
             System.out.println("La velocidad del auto electrico es de: " + nuevaVelocidad + " Km/h");
             System.out.println("Distancia recorrida del auto electrico es de: " + distanciaRecorrida + " Km");
             System.out.println("Combustible actual: " + capacidadBateria + " kWh");
-
-
             super.setVelocidadInicial(nuevaVelocidad);
         }
         else

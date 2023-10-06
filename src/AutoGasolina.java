@@ -43,7 +43,6 @@ public class AutoGasolina extends Auto {
         System.out.println("************AUTO DE GASOLINA************");
         System.out.println("EL incremento en velocidad es de: " + cantidad + "Km/h");
         int distanciaRecorrida=0;
-        //int distanciaTotal=0;
         final int TIEMPO=3;
         if (cantidad < 0) {
 
@@ -51,12 +50,10 @@ public class AutoGasolina extends Auto {
 
         }else if (cantidadCombustible > consumoTotal) {
             distanciaRecorrida = cantidad*TIEMPO;
-            //distanciaTotal =distanciaRecorrida+cantidad/TIEMPO;
             velocidad = nuevaVelocidad;
             cantidadCombustible -= consumoTotal;
             System.out.println("La aceleración del auto de gasolina es de: " + nuevaVelocidad + " Km/h");
             System.out.println("Distancia recorrida del auto de gasolina es de: " + distanciaRecorrida + " Km");
-            //System.out.println("Distancia total recorrida del auto de gasolina es de: " + distanciaTotal + " Km");
             System.out.println("Combustible actual: " + cantidadCombustible + " G");
             System.out.println("");
             super.setVelocidadInicial(nuevaVelocidad);
@@ -64,7 +61,6 @@ public class AutoGasolina extends Auto {
             System.out.println("ERROR. La velocidad del auto no puede aumentar debido a que no tiene suficiente combustible");
             System.out.println("");
         }
-        //System.out.println("La distancia total recorrida del auto de gasolina fue de: " + distanciaTotal + " Km");
     }
 
     public int getCantidadCombustible() {

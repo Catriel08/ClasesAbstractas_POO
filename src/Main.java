@@ -1,7 +1,7 @@
 public class Main {
     public static void main(String[] args) {
 
-        AutoGasolina autoGasolina = new AutoGasolina("Hatchback","Ford",280,"Gasolina",0,24,0.017f);
+        AutoGasolina autoGasolina = new AutoGasolina("Hatchback","Ford",380,"Gasolina",0,24,0.017f);
         System.out.println("");
         //autoGasolina.acelerar(150);
 
@@ -12,6 +12,7 @@ public class Main {
 
         Carrera carrera1 = new Carrera();
         carrera1.iniciar(autoGasolina,autoElectrico);
-        //carrera1.carreraTurnos(10,autoGasolina,autoElectrico);
+
+        //carrera1.carreraTurnos(30,autoGasolina,autoElectrico);
     }
 }
